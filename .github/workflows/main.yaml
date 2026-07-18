@@ -1,0 +1,38 @@
+name: Sync with Upstream
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 允许手动点击按钮触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }} # 使用 Personal Access Token 以支持推送权限
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Pull upstream and rebase
+        run: |
+          # 添加上游仓库地址（替换为你实际的上游仓库 URL）
+          git remote add upstream https://github.com/qist/tvbox || true
+          
+          # 获取上游更新
+          git fetch upstream
+          
+          # 暂存你的修改，拉取上游代码，再恢复你的修改（Rebase模式）
+          git stash
+          git rebase upstream/master || true # 如果主分支是 master，请修改为 master
+          
+          # 如果有冲突，自动解决冲突保留你的修改或上游修改（这里保留你的修改为例）
+          git checkout --ours || true
+          
+          # 推送到你自己的仓库
+          git push origin master -f # 强制推送以更新历史记录
