@@ -1,5 +1,5 @@
 {
-  "spider": "./jar/fan.txt;md5;9d5f341aa5f3353b50cc3bc16b4f3e8a",
+  "spider": "./jar/fan.txt;md5;164fa61b160f3119f4f21489b9dfaf56",
   "wallpaper": "https://动态壁纸.饭.eu.org/",
   "sites": [
     {"key": "点我切源","name": "豆豆┃片单 <兼容安卓4>","type": 3,"api": "csp_DouDouGuard","indexs": 1,"searchable": 0,"quickSearch": 0,"changeable": 0},
