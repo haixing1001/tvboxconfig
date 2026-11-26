@@ -1,5 +1,5 @@
 {
-  "spider": "./jar/fan.txt;md5;9966f0c40f3a7f2cd351ecedf642e067",
+  "spider": "./jar/fan.txt;md5;5302302a73a9e27cfaa65f3873b727ab",
   "wallpaper": "https://动态壁纸.饭.eu.org/",
   "sites": [
     {"key": "点我切源","name": "片单┃ <修复AI剧>","type": 3,"api": "csp_DouDouGuard","indexs": 1,"searchable": 0,"quickSearch": 0,"changeable": 0},
